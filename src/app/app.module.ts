@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
 import { BlogComponent } from './blog/blog.component';
 import * as $ from 'jquery';
-import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [

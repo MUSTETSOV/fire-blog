@@ -5,9 +5,9 @@ import { HomeComponent } from './home.component';
 
 // Routes
 const routes: Routes = [
-  {
+  { 
     path: 'one',
-    component: HomeComponent 
+    component: HomeComponent
   }
 ];
 

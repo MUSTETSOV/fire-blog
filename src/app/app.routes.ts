@@ -5,11 +5,11 @@ import { BlogComponent } from './blog/blog.component';
 export const rootRouterConfig: Routes = [
   { 
     path: '', 
-    redirectTo: 'demo', 
+    redirectTo: 'main', 
     pathMatch: 'full' 
   },
   { 
-    path: 'demo',
+    path: 'main',
     component: DemoComponent
   },
   { 
