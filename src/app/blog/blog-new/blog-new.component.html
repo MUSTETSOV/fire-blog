@@ -1,5 +1,5 @@
 <!-- Sign up Section start -->
-<!-- <section class="auth-page"> 
+ <section class="auth-page"> 
    <div class="animation-circle-inverse">
       <i></i>
       <i></i>
@@ -41,9 +41,7 @@
                <a href="forgot-pass.html" class="forgot-pass">forgot?</a>
             </div>
 
-            <div class="input-group">                     
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
-            </div>
+          
 
             <div class="form-group">
                <button class="btn submit" type="submit">Sign Up</button>
@@ -57,14 +55,30 @@
          </form>
       </div>
    </div>
-</section> -->
+</section>  
 
-<section>
+<section class="auth-page">
+    <div class="animation-circle-inverse">
+        <i></i>
+        <i></i>
+        <i></i>
+     </div>
+     <div class="animation-circle">
+        <i></i>
+        <i></i>
+        <i></i>
+     </div>
+     <div class="auth-card" >
+     <div class="text-center">
+        <h2>Create new blog</h2>
+        <img src="assets/images/title-line.png" alt="title-line" class="img-fluid line">
+        <p>Now you can save you article to Firestore</p>
+     </div>
 
-
-    <div class="card" style="width:25rem">
+     <div class="main">
+   
         <div class="card-body">
-          <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+          <form class="auth-form" [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
             <div class="text-center">
               <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()">
             </div>
@@ -87,17 +101,35 @@
                 <option value="Graphic design">Graphic design</option>
               </select>
             </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <a routerLink="/image/list" class="btn btn-primary btn-block float-right">Go To Gallery</a>
-              </div>
-              <div class="form-group col-md-6">
-                <button type="submit" class="btn btn-success btn-block float-right">Submit</button>
-              </div>
+            <div class="form-group">                     
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
             </div>
+
+           
+
+            <div class="form-row">
+             
+              <div class="form-group col-md-6">
+                <button class="btn submit" type="submit" class="btn submit btn-block float-left">Save</button>
+              </div>
+
+              <div class="form-group col-md-6">
+                  <button class="btn submit ggl btn-block float-right" (click)="ClearForm()">Clear</button>
+                </div>
+            </div>
+           
+            <div class="or-saparator"><span></span></div>
+
+            <div class="form-group">
+                <a routerLink="/blog/list" class="btn btn-primary btn-block">Go To Blog List</a>               
+             </div>
+
+           
+
+
           </form>
         </div>
       </div>
-
+    </div>
 
 </section>

@@ -81,4 +81,13 @@ export class BlogNewComponent implements OnInit {
     this.isSubmitted = false;
   }
 
+
+
+  ClearForm() {
+    console.log("dddddd");
+    this.resetForm();
+  }
+
+
+
 }
