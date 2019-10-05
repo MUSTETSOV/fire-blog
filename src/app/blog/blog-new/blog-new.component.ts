@@ -22,7 +22,8 @@ export class BlogNewComponent implements OnInit {
   formTemplate = new FormGroup({
     caption: new FormControl('', Validators.required),
     category: new FormControl(''),
-    imageUrl: new FormControl('', Validators.required)
+    imageUrl: new FormControl('', Validators.required),
+    mainText: new FormControl('')
   });
 
 
@@ -74,7 +75,8 @@ export class BlogNewComponent implements OnInit {
     this.formTemplate.setValue({
       caption: '',
       imageUrl: '',
-      category: 'Web design'
+      category: 'Web design',
+      mainText: ''
     });
     this.imgSrc = '/assets/img/image_placeholder.jpg';
     this.selectedImage = null;
@@ -84,7 +86,7 @@ export class BlogNewComponent implements OnInit {
 
 
   ClearForm() {
-    console.log("dddddd");
+    
     this.resetForm();
   }
 

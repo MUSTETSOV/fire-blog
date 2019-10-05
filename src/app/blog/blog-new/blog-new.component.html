@@ -1,61 +1,5 @@
 <!-- Sign up Section start -->
- <section class="auth-page"> 
-   <div class="animation-circle-inverse">
-      <i></i>
-      <i></i>
-      <i></i>
-   </div>
-   <div class="animation-circle">
-      <i></i>
-      <i></i>
-      <i></i>
-   </div>
-   <div class="auth-card">
-      <div class="text-center">
-         <h2>Create new blog</h2>
-         <img src="assets/images/title-line.png" alt="title-line" class="img-fluid line">
-         <p>Now you can save you article to Firestore</p>
-      </div>
-      <div class="main">
-         <form class="auth-form">
-            <div class="form-group">
-               <label for="exampleInputname">Name</label>
-               <i class="fa fa-user"></i>
-               <input required="" name="loginname" type="text" class="form-control" id="exampleInputname" placeholder="Name">
-            </div>
-            <div class="form-group">
-               <label for="exampleInputnumber">Phone no</label>
-               <i class="fa fa-phone"></i>
-               <input required="" name="loginnumber" type="text" class="form-control" id="exampleInputnumber" placeholder="Phone no.">
-            </div>
-
-            <div class="form-group">
-               <label for="exampleInputEmail1">Email</label>
-               <i class="fa fa-envelope-o"></i>
-               <input required="" name="login[username]" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-            </div>
-            <div class="form-group">
-               <label for="exampleInputPassword1">Password here</label>
-               <i class="fa fa-lock"></i>
-               <input id="exampleInputPassword1" required="" name="login[password]" type="password" class="form-control" placeholder="Password">
-               <a href="forgot-pass.html" class="forgot-pass">forgot?</a>
-            </div>
-
-          
-
-            <div class="form-group">
-               <button class="btn submit" type="submit">Sign Up</button>
-            </div>
-            <div class="or-saparator"><span>or</span></div>
-            <h6 class="text-center mt-0 mb-3">Sign in with:</h6>
-            <div class="form-button text-center social-btns">
-               <button type="submit" class="btn submit fb">Facebook</button>
-               <button type="submit" class="btn submit ggl">Google</button>
-            </div>           
-         </form>
-      </div>
-   </div>
-</section>  
+  
 
 <section class="auth-page">
     <div class="animation-circle-inverse">
@@ -90,25 +34,27 @@
               </div>
             </div>
             <div class="form-group">
+                  <label>Create caption</label>
               <input class="form-control" formControlName="caption" placeholder="Caption">
               <div class="text-danger" *ngIf="isSubmitted && formControls.caption.errors?.required">This field is required.
               </div>
-            </div>
-            <div class="form-group">
-              <select formControlName="category" class="form-control">
+            </div>            
+            <div class="input-group">               
+                  <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Choose category</label>
+                      </div>
+              <select formControlName="category" class="form-control" id="inputGroupSelect01">               
                 <option value="Web design">Web design</option>
                 <option value="Programming">Programming</option>
-                <option value="Graphic design">Graphic design</option>
+                <option value="Graphic design">Graphic design</option>               
               </select>
             </div>
-            <div class="form-group">                     
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
-            </div>
 
-           
-
-            <div class="form-row">
-             
+            <div class="form-group">  
+                  <label>Input text here</label>            
+                <textarea formControlName="mainText" class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
+            </div>           
+            <div class="form-row">             
               <div class="form-group col-md-6">
                 <button class="btn submit" type="submit" class="btn submit btn-block float-left">Save</button>
               </div>
@@ -121,7 +67,7 @@
             <div class="or-saparator"><span></span></div>
 
             <div class="form-group">
-                <a routerLink="/blog/list" class="btn btn-primary btn-block">Go To Blog List</a>               
+                <a routerLink="/blog/list" class="btn btn-primary btn-block go-back">Go To Blog List</a>               
              </div>
 
            
