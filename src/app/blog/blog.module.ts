@@ -10,10 +10,30 @@ import { BlogDetailsLeftsideComponent } from './blog-details-leftside/blog-detai
 import { BlogDetailsRightsideComponent } from './blog-details-rightside/blog-details-rightside.component';
 import { BlogNewComponent } from './blog-new/blog-new.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+// import { HttpClientModule } from '@angular/common/http';
+// import { HttpModule } from '@angular/http';
+
+
 @NgModule({
   imports: [
     CommonModule,
-    BlogRoutingModule
+    BlogRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    ReactiveFormsModule,
+    FormsModule,
+    // HttpModule,
+    // HttpClientModule
   ],
   declarations: [
     BlogListComponent,
