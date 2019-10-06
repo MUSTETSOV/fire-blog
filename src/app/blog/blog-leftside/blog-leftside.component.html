@@ -44,114 +44,20 @@
                           <div class="blog-hover">
                               <h4>{{ b.caption }}</h4>
                               <ul class="list-inline blog-details-list">
-                                  <li><a href="javascript:void(0)">John Doe</a></li>
-                                  <li><a href="javascript:void(0)">1 Oct</a></li>
-                                  <li><a href="javascript:void(0)">25 comments</a></li>
-                                  <li><a href="javascript:void(0)">3 View</a></li>
+                                  <li>{{b.author}}</li>
+                                  <li>{{b.date}}</li>
+                                  <li>25 comments</li>
+                                  <li>3 View</li>
                               </ul>
                           </div>
-                          <p>lorem ipsum dolor sit amet, consecteturamet adipisicing elit, tempor incididunt ut labore. lorem ipsum dolor sit amet.</p>
+                          <p>{{b.mainText}}</p>
                           <div class="btn-theme">View more</div>
                       </div>
                   </div>
-              </div>
-
-              
- </div>
-
-
-
-                   
-                    <div class="col-lg-6 col-md-12">
-                        <div class="item news-slid">
-                            <a [routerLink]="'/blog/details'">
-                                <div class="news-box">
-                                    <img src="assets/images/blog/1.jpg" alt="news-1" class="img-fluid">
-                                </div>
-                            </a>
-                            <div class="news-text">
-                                <div class="blog-hover">
-                                    <h4>lorem ipsum dolor sit amet</h4>
-                                    <ul class="list-inline blog-details-list">
-                                        <li><a href="javascript:void(0)">John Doe</a></li>
-                                        <li><a href="javascript:void(0)">1 Oct</a></li>
-                                        <li><a href="javascript:void(0)">25 comments</a></li>
-                                        <li><a href="javascript:void(0)">3 View</a></li>
-                                    </ul>
-                                </div>
-                                <p>lorem ipsum dolor sit amet, consecteturamet adipisicing elit, tempor incididunt ut labore. lorem ipsum dolor sit amet.</p>
-                                <div class="btn-theme">View more</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="item news-slid">
-                            <a [routerLink]="'/blog/details'">
-                                <div class="news-box">
-                                    <img src="assets/images/blog/2.jpg" alt="news-1" class="img-fluid">
-                                </div>
-                            </a>
-                            <div class="news-text">
-                                <div class="blog-hover">
-                                    <h4>lorem ipsum dolor sit amet</h4>
-                                    <ul class="list-inline blog-details-list">
-                                        <li><a href="javascript:void(0)">John Doe</a></li>
-                                        <li><a href="javascript:void(0)">2 Oct</a></li>
-                                        <li><a href="javascript:void(0)">25 comments</a></li>
-                                        <li><a href="javascript:void(0)">3 View</a></li>
-                                    </ul>
-                                </div>
-                                <p>lorem ipsum dolor sit amet, consecteturamet adipisicing elit, tempor incididunt ut labore. lorem ipsum dolor sit amet.</p>
-                                <div class="btn-theme">View more</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="item news-slid">
-                            <a [routerLink]="'/blog/details'">
-                                <div class="news-box">
-                                    <img src="assets/images/blog/3.jpg" alt="news-1" class="img-fluid">
-                                </div>
-                            </a>
-                            <div class="news-text">
-                                <div class="blog-hover">
-                                    <h4>lorem ipsum dolor sit amet</h4>
-                                    <ul class="list-inline blog-details-list">
-                                        <li><a href="javascript:void(0)">John Doe</a></li>
-                                        <li><a href="javascript:void(0)">3 Oct</a></li>
-                                        <li><a href="javascript:void(0)">25 comments</a></li>
-                                        <li><a href="javascript:void(0)">3 View</a></li>
-                                    </ul>
-                                </div>
-                                <p>lorem ipsum dolor sit amet, consecteturamet adipisicing elit, tempor incididunt ut labore. lorem ipsum dolor sit amet.</p>
-                                <div class="btn-theme">View more</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="item news-slid">
-                            <a [routerLink]="'/blog/details'">
-                                <div class="news-box">
-                                    <img src="assets/images/blog/4.jpg" alt="news-1" class="img-fluid">
-                                </div>
-                            </a>
-                            <div class="news-text">
-                                <div class="blog-hover">
-                                    <h4>lorem ipsum dolor sit amet</h4>
-                                    <ul class="list-inline blog-details-list">
-                                        <li><a href="javascript:void(0)">John Doe</a></li>
-                                        <li><a href="javascript:void(0)">41 Oct</a></li>
-                                        <li><a href="javascript:void(0)">25 comments</a></li>
-                                        <li><a href="javascript:void(0)">3 View</a></li>
-                                    </ul>
-                                </div>
-                                <p>lorem ipsum dolor sit amet, consecteturamet adipisicing elit, tempor incididunt ut labore. lorem ipsum dolor sit amet.</p>
-                                <div class="btn-theme">View more</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>              
             </div>
+       </div>
+    </div>
             <!-- sidebar section -->
             <div class="col-md-4 col-lg-3 order-md-first list-sidebar">
                 <div class="sidebar">

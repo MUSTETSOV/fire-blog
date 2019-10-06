@@ -6,6 +6,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 import { finalize } from 'rxjs/operators';
 
+
+
 @Component({
   selector: 'app-blog-new',
   templateUrl: './blog-new.component.html',
@@ -14,6 +16,12 @@ import { finalize } from 'rxjs/operators';
 
 export class BlogNewComponent implements OnInit {
 
+  
+ 
+ // today = Date.now();
+
+  today = new Date();
+
 
   imgSrc: string;
   selectedImage: any = null;
@@ -21,6 +29,8 @@ export class BlogNewComponent implements OnInit {
 
   formTemplate = new FormGroup({
     caption: new FormControl('', Validators.required),
+    date: new FormControl(''),
+    author: new FormControl(''),
     category: new FormControl(''),
     imageUrl: new FormControl('', Validators.required),
     mainText: new FormControl('')
@@ -74,6 +84,8 @@ export class BlogNewComponent implements OnInit {
     this.formTemplate.reset();
     this.formTemplate.setValue({
       caption: '',
+      author: '',
+      date: this.today,
       imageUrl: '',
       category: 'Web design',
       mainText: ''

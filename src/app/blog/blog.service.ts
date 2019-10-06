@@ -15,7 +15,7 @@ export class BlogService {
   loadAllBlogs(): Observable<Blog[]> {
     return this.db.collection(
       'blogs',
-      ref => ref // .orderBy('description') // или можем сортировать по полю
+      ref => ref  .orderBy('date', 'desc') // 'desc' - сортировка в обратном направлении,  'asc' - наоборот
         //  .where('seqNo', '<=', 10)
           )     // находим нужный, возможны любые комбинации выборки
     .snapshotChanges()

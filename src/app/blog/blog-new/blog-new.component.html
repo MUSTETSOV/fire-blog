@@ -50,6 +50,29 @@
               </select>
             </div>
 
+            <div class="form-group">
+                <label>Your name</label>
+            <input class="form-control" formControlName="author" placeholder="Author">
+            <div class="text-danger" *ngIf="isSubmitted && formControls.author.errors?.required">This field is required.
+            </div>
+          </div> 
+
+            <div class="form-group">               
+                <label>Select date</label>
+            <input 
+            class="form-control" 
+            formControlName="date" 
+            placeholder="Select date" 
+            type="date"
+            >
+            <div class="text-danger" *ngIf="isSubmitted && formControls.date.errors?.required">This field is required.
+            </div>
+          </div> 
+
+           
+
+
+
             <div class="form-group">  
                   <label>Input text here</label>            
                 <textarea formControlName="mainText" class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
