@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogService } from '../blog.service';
 
 @Component({
   selector: 'app-blog-leftside',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogLeftsideComponent implements OnInit {
 
-  constructor() { }
+
+  blogs$;
+
+  constructor(blogService: BlogService) {
+
+    this.blogs$ = blogService.loadAllBlogs();
+   }
 
   ngOnInit() {
   }

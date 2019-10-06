@@ -17,6 +17,7 @@ import { environment } from '../../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BlogCardComponent } from './blog-card/blog-card.component';
 
 // import { HttpClientModule } from '@angular/common/http';
 // import { HttpModule } from '@angular/http';
@@ -42,7 +43,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     BlogRightsideComponent,
     BlogDetailsLeftsideComponent,
     BlogDetailsRightsideComponent,
-    BlogNewComponent
+    BlogNewComponent,
+    BlogCardComponent
   ]
 })
 export class BlogModule { }
