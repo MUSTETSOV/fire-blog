@@ -63,11 +63,29 @@
                         <div class="blog-divider"></div>
                         <div class="blog-cat-detail">
                             <ul>
-                                <li *ngFor="let c of categories$ | async" class="marg-15" >
-                                    <a [routerLink]="'/blog/details'">
+                                <!-- <li *ngFor="let c of categories$ | async" class="marg-15" >
+                                    <a routerLink="/blog/left-sidebar"
+                                    [queryParams]="{ category: c.name }">                                        
+
                                         <i class="fa fa-angle-right" aria-hidden="true"></i> {{ c.name }}
                                     </a>
-                                </li>                               
+                                </li>                                -->
+
+                                <li class="marg-15" (click)="webBlogs()">
+                                    <a >
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> Web Design
+                                    </a>
+                                </li>
+                                <li class="marg-15">
+                                    <a [routerLink]="'/blog/details'">
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> Programming
+                                    </a>
+                                </li>
+                                <li class="marg-15">
+                                    <a [routerLink]="'/blog/details'">
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> Graphic design
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
