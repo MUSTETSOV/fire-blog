@@ -31,6 +31,15 @@ export class BlogService {
         first()); // добавляем его если не хотим обновлять на лету (удалить first() и запятую перед)
     }
 
+     
+
+
+  getCategories() {
+     return this.db.collection ('categories', ref => ref .orderBy('name', 'asc') )
+     .valueChanges();    // в отличие от MOCH добавляем .valueChanges()
+  }
+
+
 
 }
 

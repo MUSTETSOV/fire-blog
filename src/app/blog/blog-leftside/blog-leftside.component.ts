@@ -10,10 +10,12 @@ export class BlogLeftsideComponent implements OnInit {
 
 
   blogs$;
+  categories$;
 
   constructor(blogService: BlogService) {
 
     this.blogs$ = blogService.loadAllBlogs();
+    this.categories$ = blogService.getCategories();
    }
 
   ngOnInit() {

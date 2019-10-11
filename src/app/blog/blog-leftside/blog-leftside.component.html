@@ -25,10 +25,7 @@
             <div class="col-md-8 col-lg-9 blog-sec">
                 <div class="row blog-list">
 
-                        <!-- <div *ngFor= "let b of filteredBlogs; let i = index" >
-                                <app-blog-card [blog]="b"></app-blog-card>
-                          </div> -->
-
+                      
     <div class="row blog-list"  >
 
           <div 
@@ -66,31 +63,11 @@
                         <div class="blog-divider"></div>
                         <div class="blog-cat-detail">
                             <ul>
-                                <li class="marg-15">
+                                <li *ngFor="let c of categories$ | async" class="marg-15" >
                                     <a [routerLink]="'/blog/details'">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i> Lorem Ipsum is simply
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> {{ c.name }}
                                     </a>
-                                </li>
-                                <li class="marg-15">
-                                    <a [routerLink]="'/blog/details'">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i> There Are Many Variations
-                                    </a>
-                                </li>
-                                <li class="marg-15">
-                                    <a [routerLink]="'/blog/details'">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i> it has survived not five
-                                    </a>
-                                </li>
-                                <li class="marg-15">
-                                    <a [routerLink]="'/blog/details'">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i> Lorem Ipsum has been the.
-                                    </a>
-                                </li>
-                                <li class="marg-15">
-                                    <a [routerLink]="'/blog/details'">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i> Lorem Ipsum is random.
-                                    </a>
-                                </li>
+                                </li>                               
                             </ul>
                         </div>
                     </div>
