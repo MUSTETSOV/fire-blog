@@ -48,7 +48,19 @@
                               </ul>
                           </div>
                           <p>{{b.mainText}}</p>
-                          <div class="btn-theme">View more</div>
+                          <!-- <div class="btn-theme" [routerLink]="['details/', b.$key]">View more</div> -->
+
+                          
+                          
+                          <div class="form-group">
+                            <a  class="btn submit" [routerLink]="['/blog/details', b.blogUrl]">View more</a>               
+                         </div>
+
+                         <!-- <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/courses', course.url]">
+                            VIEW COURSE
+                        </button> -->
+
+
                       </div>
                   </div>
               </div>              

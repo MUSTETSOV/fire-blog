@@ -20,7 +20,11 @@ const routes: Routes = [
       {
         path: 'details',
         component: BlogDetailsComponent,
-      }, 
+      },
+      {
+      path: 'details/:id',
+      component: BlogDetailsComponent,
+    },
       {
         path: 'new',
         component: BlogNewComponent,

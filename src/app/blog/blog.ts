@@ -6,4 +6,5 @@ export interface Blog {
     mainText: string;
     category: string;
     imageUrl: string;
+    blogUrl: string;
   }
