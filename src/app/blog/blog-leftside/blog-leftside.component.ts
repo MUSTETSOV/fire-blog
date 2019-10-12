@@ -19,19 +19,37 @@ export class BlogLeftsideComponent implements OnInit {
 
 
 
-  constructor(blogService: BlogService) {
+  constructor(private blogService: BlogService) {
 
    this.blogs$ = blogService.loadAllBlogs();
     this.categories$ = blogService.getCategories();
 
-    
-   
+     
+    }
+
+    reload() {
+      this.blogs$ = this.blogService.loadAllBlogs();
     }
 
     webBlogs() {
+      this.reload();
       this.blogs$ = this.blogs$.pipe(
         map(blogs => blogs.filter(
             blog => blog.category.includes("Web design"))));
+        }
+
+    programmingBlogs() {
+      this.reload();
+      this.blogs$ = this.blogs$.pipe(
+        map(blogs => blogs.filter(
+            blog => blog.category.includes("Programming"))));
+        }
+
+    graphicBlogs() {
+      this.reload();
+      this.blogs$ = this.blogs$.pipe(
+        map(blogs => blogs.filter(
+            blog => blog.category.includes("Graphic design"))));
         }
 
 
@@ -40,6 +58,8 @@ export class BlogLeftsideComponent implements OnInit {
 
 
   ngOnInit() {
+
+    this.reload();
   }
 
 }
