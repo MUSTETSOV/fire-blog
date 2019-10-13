@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Blog } from '../blog';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-blog-details-leftside',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogDetailsLeftsideComponent implements OnInit {
 
-  constructor() { }
+  blog: Blog;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.blog = this.route.snapshot.data['blog'];
   }
 
 }

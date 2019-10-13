@@ -4,6 +4,8 @@ import { Observable, from } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Blog } from './blog';
 
+import { convertSnaps } from './services/db.utils';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,9 +17,8 @@ export class BlogService {
   loadAllBlogs(): Observable<Blog[]> {
     return this.db.collection(
       'blogs',
-      ref => ref  .orderBy('date', 'desc') // 'desc' - сортировка в обратном направлении,  'asc' - наоборот
-        //  .where('seqNo', '<=', 10)
-          )     // находим нужный, возможны любые комбинации выборки
+      ref => ref  .orderBy('date', 'desc') // 'desc' - сортировка в обратном направлении,  'asc' - наоборот       
+      )
     .snapshotChanges()
     .pipe(
       map(snaps => {
@@ -31,14 +32,27 @@ export class BlogService {
         first()); // добавляем его если не хотим обновлять на лету (удалить first() и запятую перед)
     }
 
-     
 
+    findBlogByUrl(blogUrl: string): Observable<Blog> {
+      return this.db.collection('blogs',
+          ref => ref.where('blogUrl', '==', blogUrl))
+          .snapshotChanges()
+          .pipe(
+              map(snaps => {
 
-  getCategories() {
-     return this.db.collection ('categories', ref => ref .orderBy('name', 'asc') )
-     .valueChanges();    // в отличие от MOCH добавляем .valueChanges()
+                  const blogs = convertSnaps<Blog>(snaps);
+
+                  // tslint:disable-next-line: triple-equals
+                  return blogs.length == 1 ? blogs[0] : undefined;
+              }),
+              first()
+          );
   }
 
+  getCategories() {
+    return this.db.collection ('categories', ref => ref .orderBy('name', 'asc') )
+    .valueChanges();    // в отличие от MOCH добавляем .valueChanges()
+ }
 
 
 }

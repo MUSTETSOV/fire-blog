@@ -53,10 +53,6 @@ export class BlogLeftsideComponent implements OnInit {
         }
 
 
-
-
-
-
   ngOnInit() {
 
     this.reload();

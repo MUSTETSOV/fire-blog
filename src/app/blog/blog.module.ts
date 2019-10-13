@@ -19,6 +19,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BlogCardComponent } from './blog-card/blog-card.component';
 
+import { BlogResolver } from './services/blog.resolver';
+
 
 
 
@@ -43,6 +45,7 @@ import { BlogCardComponent } from './blog-card/blog-card.component';
     BlogDetailsRightsideComponent,
     BlogNewComponent,
     BlogCardComponent
-  ]
+  ],
+  providers: [BlogResolver]
 })
 export class BlogModule { }
