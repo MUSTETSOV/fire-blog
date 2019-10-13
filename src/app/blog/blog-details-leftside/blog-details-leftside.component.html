@@ -26,7 +26,8 @@
             <div class="col-sm-12 col-md-8 col-lg-9">
                 <div class="blog-details news-slid">
                     <div class="news-box">
-                        <img src="assets/images/blog/1.jpg" alt="news-1" class="img-fluid">
+                        <img src="{{blog.imageUrl}}" alt="news-1" class="img-fluid">
+                      
                     </div>
                     <div class="news-text">
                         <div class="blog-hover">
@@ -84,20 +85,33 @@
                 <div class="row">
                     <div class="col-md-10 offset-md-1 leave-coment">
                         <h3 class="text-center">Leave Your Comment</h3>
-                        <form class="theme-form p-0 mt-3">
+
+
+
+
+                        <form class="auth-form" [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+
+                             
+
+
                             <div class="form-group">
                                 <div class="row">
+
                                     <div class="col-lg-6 col-md-12 md-fgrup-margin">
-                                        <input type="text" class="form-control" placeholder="your name">
+                                        <input class="form-control" type="text" class="form-control" formControlName="caption" placeholder="Caption">
                                     </div>
+
+
                                     <div class="col-lg-6 col-md-12">
-                                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="email address">
+                                        <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="date" placeholder="date">
                                     </div>
+
                                 </div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="message"></textarea>
+                                <textarea formControlName="text" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="message"></textarea>
                             </div>
+
                             <div class="form-button">
                                 <button type="submit" class="btn btn-theme theme-color">send</button>
                             </div>
