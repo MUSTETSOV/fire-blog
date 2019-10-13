@@ -14,12 +14,22 @@ export class BlogDetailsLeftsideComponent implements OnInit {
 
   blog: Blog;
 
+  serverTime = Date.now();
+  temp = 'temp';
+
 
   formTemplate = new FormGroup({
     caption: new FormControl(''),
     date: new FormControl(''),
-    text: new FormControl('')
+    text: new FormControl(''),
+    nowdate: new FormControl('')
   });
+
+
+ date = {
+    serverTime: this.serverTime,
+    temp: this.temp
+};
 
 
 
@@ -30,6 +40,15 @@ export class BlogDetailsLeftsideComponent implements OnInit {
   onSubmit(formValue) {
          //   this.resetForm();
             this.firestore.collection('blogs').doc(this.blog.id).collection('comments').add(formValue);
+            
+            
+            
+
+
+
+            // рабочий
+            // this.firestore.collection('blogs').doc(this.blog.id).collection('comments').add(this.date);
+            
   }
 
 
