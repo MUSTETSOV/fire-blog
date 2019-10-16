@@ -18,29 +18,17 @@ export class BlogDetailsLeftsideComponent implements OnInit {
   blog: Blog;
   comments: Comment[];
 
-   // comments$: Observable<any> = this.firestore.collection('blogs').doc(this.blog.id).collection('comments').valueChanges();
-
-
-  //comments$: Observable<any> = this.firestore.collection('blogs').doc(this.blog.id).collection('comments').get();
-  
-  
-
-
   serverTime = Date.now();
-  temp = 'temp';
-
-
+  
   formTemplate = new FormGroup({
     caption: new FormControl(''),
-    date: new FormControl(''),
     text: new FormControl(''),
-    nowdate: new FormControl('')
+    date: new FormControl('')
   });
 
 
  date = {
-    serverTime: this.serverTime,
-    temp: this.temp
+    serverTime: this.serverTime
 };
 
 
@@ -54,6 +42,7 @@ export class BlogDetailsLeftsideComponent implements OnInit {
             this.firestore.collection('blogs').doc(this.blog.id).collection('comments').add(formValue);
             // рабочий
             // this.firestore.collection('blogs').doc(this.blog.id).collection('comments').add(this.date);
+            
 
   }
 
@@ -62,7 +51,6 @@ export class BlogDetailsLeftsideComponent implements OnInit {
   ngOnInit() {
 
     this.blog = this.route.snapshot.data['blog'];
-    
 
   //  this.loading = true;
 
@@ -73,11 +61,6 @@ export class BlogDetailsLeftsideComponent implements OnInit {
     .subscribe(
         comments => this.comments = comments
     );
-
-
-
-
-
   }
 
 }

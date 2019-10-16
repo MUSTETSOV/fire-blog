@@ -55,7 +55,7 @@ export class BlogService {
   pageNumber = 0, pageSize = 3): Observable<Comment[]> {
 
 return this.db.collection(`blogs/${blogId}/comments`,
-ref => ref.orderBy('date')
+ref => ref.orderBy('date', 'desc')
 // .limit(pageSize)
 // .startAfter(pageNumber * pageSize)
 )
