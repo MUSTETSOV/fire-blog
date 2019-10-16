@@ -32,7 +32,7 @@
           *ngFor= "let b of blogs$ | async"
           class="col-lg-6 col-md-12">
                   <div class="item news-slid">
-                      <a [routerLink]="'/blog/details'">
+                      <a [routerLink]="['/blog/details-left-sidebar', b.blogUrl]">
                           <div class="news-box">
                               <img src="{{b.imageUrl}}" alt="news-1" class="img-fluid">
                           </div>
@@ -48,19 +48,10 @@
                               </ul>
                           </div>
                           <p>{{b.mainText}}</p>
-                          <!-- <div class="btn-theme" [routerLink]="['details/', b.$key]">View more</div> -->
-
-                          
                           
                           <div class="form-group">
-                            <a  class="btn submit" [routerLink]="['/blog/details-left-sidebar', b.blogUrl]">View more</a>      
-                                   
+                            <a  class="btn submit" [routerLink]="['/blog/details-left-sidebar', b.blogUrl]">View more</a>  
                          </div>
-
-                         <!-- <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/courses', course.url]">
-                            VIEW COURSE
-                        </button> -->
-
 
                       </div>
                   </div>
@@ -76,14 +67,6 @@
                         <div class="blog-divider"></div>
                         <div class="blog-cat-detail">
                             <ul>
-                                <!-- <li *ngFor="let c of categories$ | async" class="marg-15" >
-                                    <a routerLink="/blog/left-sidebar"
-                                    [queryParams]="{ category: c.name }">                                        
-
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i> {{ c.name }}
-                                    </a>
-                                </li>                                -->
-
                                 <li class="marg-15" (click)="webBlogs()">
                                     <a>
                                         <i class="fa fa-angle-right" aria-hidden="true"></i> Web Design
@@ -106,7 +89,9 @@
                         <h4 class="blog-title">Popular Tag</h4>
                         <div class="blog-divider"></div>
                         <div class="tags marg-20">
-                            <a href="javascript:void(0)"><span class="badge badge-theme">Responsive design</span></a>
+                                <input (click)="doFilter($event.target.value)" value="Programming" Programming >
+                            <div class = "btn" (click)="doFilter($event.target.html)">Programming</div>  
+                            <a class = "btn" (click)="doFilter($event.target.value)" ><span class="badge badge-theme">Programming</span>Programming</a>
                             <a href="javascript:void(0)"><span class="badge badge-theme">Color options</span></a>
                             <a href="javascript:void(0)"><span class="badge badge-theme">Multiple demos</span></a>
                             <a href="javascript:void(0)"><span class="badge badge-theme">Dedicated support</span></a>
@@ -121,31 +106,21 @@
                     <h4 class="blog-title">Recent Post</h4>
                     <div class="blog-divider"></div>
                     <div class="recent-blog marg-20">
-                        <div class="media">
-                            <img class="mr-3" src="assets/images/blog/blog-comment-two.jpg" alt="blog">
-                            <div class="media-body">
-                                <a [routerLink]="'/blog/details'">
-                                    <h5 class="mt-0">Lorem Ipsum Is Simply Dummy</h5>
-                                </a>
-                                <p class="m-0">05 March 2011</p>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <img class="mr-3" src="assets/images/blog/blog-comment-three.jpg" alt="blog">
-                            <div class="media-body">
-                                <a [routerLink]="'/blog/details'">
-                                    <h5 class="mt-0">Lorem Ipsum Is Simply Dummy</h5>
-                                </a>
-                                <p class="m-0">05 March 2011</p>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <img class="mr-3" src="assets/images/blog/blog-comment.jpg" alt="blog">
-                            <div class="media-body">
-                                <a [routerLink]="'/blog/details'">
-                                    <h5 class="mt-0">Lorem Ipsum Is Simply Dummy</h5>
-                                </a>
-                                <p class="m-0">05 March 2011</p>
+                        <div 
+                        *ngFor= "let b of blogs$ | async; let i = index"
+                        class="media">
+                            <img
+                            *ngIf= "i < 3"                            
+                            class="mr-3" 
+                            src="{{b.imageUrl}}" 
+                            alt="blog">
+                            <div class="media-body">                                
+                                    <h5 
+                                    *ngIf= "i < 3"
+                                    class="mt-0">{{ b.caption }}</h5>                                
+                                <p 
+                                *ngIf= "i < 3"
+                                class="m-0">{{b.date}}</p>
                             </div>
                         </div>
                     </div>

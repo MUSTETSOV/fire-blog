@@ -53,6 +53,17 @@ export class BlogLeftsideComponent implements OnInit {
         }
 
 
+        doFilter(filterValue: string) {
+          this.reload();
+      this.blogs$ = this.blogs$.pipe(
+        map(blogs => blogs.filter(
+            blog => blog.category.includes(filterValue))));
+            console.log(filterValue);
+        }
+
+        
+
+
   ngOnInit() {
 
     this.reload();
