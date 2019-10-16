@@ -30,37 +30,41 @@ export class BlogDetailsLeftsideComponent implements OnInit {
  date = {
     serverTime: this.serverTime
 };
-
-
-
   constructor(private route: ActivatedRoute, private firestore: AngularFirestore, private blogService: BlogService) { }
 
-
-
   onSubmit(formValue) {
-         //   this.resetForm();
             this.firestore.collection('blogs').doc(this.blog.id).collection('comments').add(formValue);
             // рабочий
             // this.firestore.collection('blogs').doc(this.blog.id).collection('comments').add(this.date);
-            
-
+            this.resetForm();
+           
+         
   }
 
-
+  resetForm() {
+    this.formTemplate.reset();
+    this.formTemplate.setValue({
+      caption: '',
+      text: '',
+      date: ''
+    });
+    this.viewComments();
+  }
 
   ngOnInit() {
 
-    this.blog = this.route.snapshot.data['blog'];
+   
+    this.viewComments();
 
-  //  this.loading = true;
+    
 
-    this.blogService.findComments(this.blog.id)
-  //   .pipe(
-  //     finalize(() => this.loading = false)
-  // )
-    .subscribe(
-        comments => this.comments = comments
-    );
   }
 
+  viewComments() {
+      this.blog = this.route.snapshot.data['blog'];
+      this.blogService.findComments(this.blog.id)
+      .subscribe(
+          comments => this.comments = comments
+      );
+  }
 }
