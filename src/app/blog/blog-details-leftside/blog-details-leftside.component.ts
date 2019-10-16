@@ -4,6 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
+import { BlogService } from '../blog.service';
 
 @Component({
   selector: 'app-blog-details-leftside',
@@ -13,6 +16,15 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class BlogDetailsLeftsideComponent implements OnInit {
 
   blog: Blog;
+  comments: Comment[];
+
+   // comments$: Observable<any> = this.firestore.collection('blogs').doc(this.blog.id).collection('comments').valueChanges();
+
+
+  //comments$: Observable<any> = this.firestore.collection('blogs').doc(this.blog.id).collection('comments').get();
+  
+  
+
 
   serverTime = Date.now();
   temp = 'temp';
@@ -33,31 +45,39 @@ export class BlogDetailsLeftsideComponent implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute, private firestore: AngularFirestore) { }
+  constructor(private route: ActivatedRoute, private firestore: AngularFirestore, private blogService: BlogService) { }
 
 
 
   onSubmit(formValue) {
          //   this.resetForm();
             this.firestore.collection('blogs').doc(this.blog.id).collection('comments').add(formValue);
-            
-            
-            
-
-
-
             // рабочий
             // this.firestore.collection('blogs').doc(this.blog.id).collection('comments').add(this.date);
-            
+
   }
-
-
 
 
 
   ngOnInit() {
 
     this.blog = this.route.snapshot.data['blog'];
+    
+
+  //  this.loading = true;
+
+    this.blogService.findComments(this.blog.id)
+  //   .pipe(
+  //     finalize(() => this.loading = false)
+  // )
+    .subscribe(
+        comments => this.comments = comments
+    );
+
+
+
+
+
   }
 
 }

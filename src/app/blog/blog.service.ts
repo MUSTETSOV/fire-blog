@@ -3,6 +3,7 @@ import { map, first } from 'rxjs/operators';
 import { Observable, from } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Blog } from './blog';
+import { Comment } from './model/comment';
 
 import { convertSnaps } from './services/db.utils';
 
@@ -48,6 +49,27 @@ export class BlogService {
               first()
           );
   }
+
+
+  findComments(blogId: string,
+  pageNumber = 0, pageSize = 3): Observable<Comment[]> {
+
+return this.db.collection(`blogs/${blogId}/comments`,
+ref => ref.orderBy('date')
+// .limit(pageSize)
+// .startAfter(pageNumber * pageSize)
+)
+.snapshotChanges()
+.pipe(
+map(snaps => convertSnaps<Comment>(snaps)),
+first()
+);
+
+}
+
+
+
+
 
   getCategories() {
     return this.db.collection ('categories', ref => ref .orderBy('name', 'asc') )

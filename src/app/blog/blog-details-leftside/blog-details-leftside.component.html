@@ -48,18 +48,20 @@
                             </ul>
                         </div>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     </div>
                 </div>
                 <div class="blog-divider"></div>
                 <div class="reply-comment">
-                    <div class="media">
+                    <div 
+                    *ngFor= "let c of comments"
+                    class="media">
                         <img class="align-self-top mr-3" src="assets/images/blog/blog-comment.jpg" alt="blog">
                         <div class="media-body">
                             <a href="javascript:void(0)">
-                                <h5 class="mt-0">Lorem Ipsum Is Simply Dummy</h5>
+                                <h5 class="mt-0">{{c.caption}}</h5>
                             </a>
-                            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.Donec sed odio dui.</p>
+                            <p>Beautiful page</p>
                         </div>
                     </div>
                     <div class="media">
@@ -101,10 +103,6 @@
                                         <input class="form-control" type="text" class="form-control" formControlName="caption" placeholder="Caption">
                                     </div>
 
-
-                                    <div class="col-lg-6 col-md-12">
-                                        <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="date" placeholder="date">
-                                    </div>
 
                                     <div class="col-lg-6 col-md-12">
                                         <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="nowdate" style="visibility: hidden" placeholder="date" [(ngModel)] = "serverTime">                                        
@@ -179,7 +177,9 @@
                     </div>
                     <h4 class="blog-title">Recent Post</h4>
                     <div class="blog-divider"></div>
-                    <div class="recent-blog marg-20">
+                    <div 
+                    
+                    class="recent-blog marg-20">
                         <div class="media">
                             <img class="mr-3" src="assets/images/blog/blog-comment-two.jpg" alt="blog">
                             <div class="media-body">
