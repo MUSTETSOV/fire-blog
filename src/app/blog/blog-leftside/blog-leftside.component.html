@@ -87,13 +87,20 @@
                     </div>
                     <div class="sidebar-space">
                         <h4 class="blog-title">Popular Tag</h4>
+                        
                         <div class="blog-divider"></div>
                         <div class="tags marg-20">
-                                <input (click)="doFilter($event.target.value)" value="Programming" Programming >
-                            <div class = "btn" (click)="doFilter($event.target.html)">Programming</div>  
-                            <a class = "btn" (click)="doFilter($event.target.value)" ><span class="badge badge-theme">Programming</span>Programming</a>
-                            <a href="javascript:void(0)"><span class="badge badge-theme">Color options</span></a>
-                            <a href="javascript:void(0)"><span class="badge badge-theme">Multiple demos</span></a>
+     
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Programming"  >Programming</button>
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Web"  >Web</button>
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Web"  >Programming</button>                          
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Design"  >Design</button> 
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Programming"  >Programming</button>
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Web"  >Web</button>
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Web"  >Programming</button>   
+
+                                
+                            <a class = "btn" (click)="doFilter($event.target.value)" ><span class="badge badge-theme">fromA</span></a>                            
                             <a href="javascript:void(0)"><span class="badge badge-theme">Dedicated support</span></a>
                             <a href="javascript:void(0)"><span class="badge badge-theme">Documentation</span></a>
                             <a href="javascript:void(0)"><span class="badge badge-theme">PSD is included</span></a>
