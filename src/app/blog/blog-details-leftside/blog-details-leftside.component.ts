@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { BlogService } from '../blog.service';
+import { Comment } from '../model/comment';
 
 @Component({
   selector: 'app-blog-details-leftside',
@@ -17,6 +18,8 @@ export class BlogDetailsLeftsideComponent implements OnInit {
 
   blog: Blog;
   comments: Comment[];
+
+
 
   serverTime = Date.now();
   
@@ -63,8 +66,10 @@ export class BlogDetailsLeftsideComponent implements OnInit {
   viewComments() {
       this.blog = this.route.snapshot.data['blog'];
       this.blogService.findComments(this.blog.id)
+      
       .subscribe(
           comments => this.comments = comments
+          
       );
   }
 }
