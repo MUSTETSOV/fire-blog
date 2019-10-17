@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../blog.service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Blog } from '../blog';
+import { Blog } from '../model/blog';
+// import { map } from 'rxjs/operator/map';
+import * as _ from 'lodash';
+
+import { Pipe, PipeTransform } from '@angular/core';
 
 
 @Component({
@@ -14,6 +18,7 @@ export class BlogLeftsideComponent implements OnInit {
 
 
   blogs$: Observable<Blog[]>;
+  uniqueBlogs$: Observable<any>;
   categories$;
   webBlogs$;
 
@@ -53,20 +58,29 @@ export class BlogLeftsideComponent implements OnInit {
         }
 
 
+
+
+        // tags
+
+       
+        
+
         doFilter(filterValue: string) {
           this.reload();
-      this.blogs$ = this.blogs$.pipe(
+        this.blogs$ = this.blogs$.pipe(
         map(blogs => blogs.filter(
-            blog => blog.category.includes(filterValue))));
+            blog => blog.tag.includes(filterValue))));
             console.log(filterValue);
         }
 
-        
+
+      
 
 
   ngOnInit() {
 
     this.reload();
+    this.uniqueBlogs$ = this.blogs$.pipe(map(data => _.uniqBy(data, 'tag')));
   }
 
 }

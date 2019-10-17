@@ -2,7 +2,7 @@
 
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
-import { Blog } from '../blog';
+import { Blog } from '../model/blog';
 import {Observable, of} from 'rxjs';
 
 import {first} from 'rxjs/operators';

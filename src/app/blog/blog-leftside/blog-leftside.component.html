@@ -89,10 +89,14 @@
                         <h4 class="blog-title">Popular Tag</h4>
                         
                         <div class="blog-divider"></div>
-                        <div class="tags marg-20">
+                        <div 
+                        *ngFor= "let b of uniqueBlogs$ | async"
+                        class="tags marg-20">
      
-                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Programming"  >Programming</button>
-                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Web"  >Web</button>
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="{{b.tag}}">                                    
+                                    {{b.tag}}
+                                </button>
+                                <!-- <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Web"  >Web</button>
                                 <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Web"  >Programming</button>                          
                                 <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Design"  >Design</button> 
                                 <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Programming"  >Programming</button>
@@ -107,7 +111,7 @@
                             <a href="javascript:void(0)"><span class="badge badge-theme">Text</span></a>
                             <a href="javascript:void(0)"><span class="badge badge-theme">Support</span></a>
                             <a href="javascript:void(0)"><span class="badge badge-theme">Responsive</span></a>
-                            <a href="javascript:void(0)"><span class="badge badge-theme">Design</span></a>
+                            <a href="javascript:void(0)"><span class="badge badge-theme">Design</span></a> -->
                         </div>
                     </div>
                     <h4 class="blog-title">Recent Post</h4>

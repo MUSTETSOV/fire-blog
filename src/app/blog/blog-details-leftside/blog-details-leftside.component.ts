@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Blog } from '../blog';
+import { Blog } from '../model/blog';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';

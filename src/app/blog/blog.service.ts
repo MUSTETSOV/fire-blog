@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { map, first } from 'rxjs/operators';
 import { Observable, from } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Blog } from './blog';
+import { Blog } from './model/blog';
 import { Comment } from './model/comment';
 
 import { convertSnaps } from './services/db.utils';
