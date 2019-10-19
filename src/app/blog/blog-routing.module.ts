@@ -13,14 +13,16 @@ import { BlogResolver } from './services/blog.resolver';
 const routes: Routes = [
   {
     path: '',
+    
     children: [ 
-      {
-        path: 'list',
-        component: BlogListComponent,
-      },
+     
       {
         path: 'details',
         component: BlogDetailsComponent,
+      },
+      {
+        path: 'blog',
+        redirectTo: 'left-sidebar',
       },
     //   {
     //     path: 'details/:blogUrl',
@@ -29,9 +31,9 @@ const routes: Routes = [
       {
         path: 'new',
         component: BlogNewComponent,
-      }, 
+      },
       {
-        path: 'left-sidebar',
+        path: 'list',
         component: BlogLeftsideComponent,
       }, 
       {

@@ -20,9 +20,10 @@ import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
     BlogComponent,
     HomeComponent,
     MainComponent
