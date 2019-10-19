@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from "./shared/shared.module";
 import { rootRouterConfig } from './app.routes';
 import { AppComponent } from './app.component';
-import { DemoComponent } from './demo/demo.component';
+
 import { BlogComponent } from './blog/blog.component';
 import * as $ from 'jquery';
 
@@ -16,13 +16,16 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { HomeComponent } from './home/home.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DemoComponent,
-    BlogComponent
+    AppComponent
+    BlogComponent,
+    HomeComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

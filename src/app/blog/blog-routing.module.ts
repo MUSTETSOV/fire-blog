@@ -13,7 +13,7 @@ import { BlogResolver } from './services/blog.resolver';
 const routes: Routes = [
   {
     path: '',
-    children: [
+    children: [ 
       {
         path: 'list',
         component: BlogListComponent,

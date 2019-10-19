@@ -1,16 +1,19 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LandingFixService } from '../shared/services/landing-fix.service';
 
+
 @Component({
-  selector: 'app-demo',
-  templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.scss']
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss']
 })
-export class DemoComponent implements OnInit, OnDestroy {
+export class MainComponent implements OnInit, OnDestroy {
 
-  constructor(private fix: LandingFixService) { }
 
-  today: number = Date.now();
+
+  constructor(
+    private fix: LandingFixService
+  ) { }
 
   ngOnInit() {
     this.fix.addFix();
@@ -21,3 +24,5 @@ export class DemoComponent implements OnInit, OnDestroy {
   }
 
 }
+
+
