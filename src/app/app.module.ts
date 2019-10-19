@@ -18,6 +18,13 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
+import { AboutComponent } from './home/about/about.component';
+
+
+import { OwlModule } from 'ngx-owl-carousel';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 
 
 
@@ -26,7 +33,11 @@ import { MainComponent } from './main/main.component';
     AppComponent,
     BlogComponent,
     HomeComponent,
-    MainComponent
+    MainComponent,
+    AboutComponent,
+
+
+
   ],
   imports: [
     BrowserModule,

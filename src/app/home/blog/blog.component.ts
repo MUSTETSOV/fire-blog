@@ -12,6 +12,7 @@ export class BlogComponent implements OnInit {
   ngOnInit() { }
 
   // Blog Carousel
+  // tslint:disable-next-line: member-ordering
   public blog = [{
         image: 'assets/images/blog/1.jpg',
         date: '15 jun 2016',
