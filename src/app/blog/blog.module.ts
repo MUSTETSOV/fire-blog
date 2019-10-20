@@ -17,6 +17,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { BlogResolver } from './services/blog.resolver';
 
+import { EditorModule } from '@tinymce/tinymce-angular';
+
 
 
 
@@ -29,7 +31,8 @@ import { BlogResolver } from './services/blog.resolver';
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    EditorModule
    
   ],
   declarations: [

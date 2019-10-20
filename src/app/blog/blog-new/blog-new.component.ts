@@ -32,6 +32,7 @@ export class BlogNewComponent implements OnInit {
     date: new FormControl(''),
     author: new FormControl(''),
     category: new FormControl(''),
+    blogUrl: new FormControl(''),
     imageUrl: new FormControl('', Validators.required),
     mainText: new FormControl('')
   });
@@ -86,7 +87,8 @@ export class BlogNewComponent implements OnInit {
       date: this.today,
       imageUrl: '',
       category: 'Web design',
-      mainText: ''
+      mainText: '',
+      blogUrl: ''
     });
     this.imgSrc = '/assets/img/image_placeholder.jpg';
     this.selectedImage = null;
