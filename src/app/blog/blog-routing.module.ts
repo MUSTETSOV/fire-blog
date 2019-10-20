@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { BlogListComponent } from './blog-list/blog-list.component';
-import { BlogDetailsComponent } from './blog-details/blog-details.component';
 import { BlogLeftsideComponent } from './blog-leftside/blog-leftside.component';
-import { BlogRightsideComponent } from './blog-rightside/blog-rightside.component';
+
 import { BlogDetailsLeftsideComponent } from './blog-details-leftside/blog-details-leftside.component';
-import { BlogDetailsRightsideComponent } from './blog-details-rightside/blog-details-rightside.component';
+
 import { BlogNewComponent } from './blog-new/blog-new.component';
 import { BlogResolver } from './services/blog.resolver';
 
@@ -16,18 +14,12 @@ const routes: Routes = [
     
     children: [ 
      
-      {
-        path: 'details',
-        component: BlogDetailsComponent,
-      },
+
       {
         path: 'blog',
         redirectTo: 'left-sidebar',
       },
-    //   {
-    //     path: 'details/:blogUrl',
-    //     component: BlogLeftsideComponent,
-    // },
+
       {
         path: 'new',
         component: BlogNewComponent,
@@ -36,20 +28,14 @@ const routes: Routes = [
         path: 'list',
         component: BlogLeftsideComponent,
       }, 
-      {
-        path: 'right-sidebar',
-        component: BlogRightsideComponent,
-      },
+
       {
         path: 'details-left-sidebar/:blogUrl',
         component: BlogDetailsLeftsideComponent,
         resolve: {
           blog: BlogResolver
         }},
-      {
-        path: 'details-right-sidebar',
-        component: BlogDetailsRightsideComponent,
-      }
+
     ]
   }
 ];
