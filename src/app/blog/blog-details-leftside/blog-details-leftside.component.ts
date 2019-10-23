@@ -17,7 +17,7 @@ import { Comment } from '../model/comment';
 export class BlogDetailsLeftsideComponent implements OnInit {
 
   blog: Blog;
-  comments: Comment[];
+  comments: Comment[] = [];
 
 
 
