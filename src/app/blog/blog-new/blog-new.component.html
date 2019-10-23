@@ -1,0 +1,134 @@
+<!-- Sign up Section start -->
+
+
+<section class="auth-page">
+    <div class="animation-circle-inverse">
+        <i></i>
+        <i></i>
+        <i></i>
+     </div>
+     <div class="animation-circle">
+        <i></i>
+        <i></i>
+        <i></i>
+     </div>
+     <div class="auth-card" >
+     <div class="text-center">
+        <h2>Create new blog</h2>
+        <img src="assets/images/title-line.png" alt="title-line" class="img-fluid line">
+        <p>Now you can save you article to Firestore</p>
+     </div>
+
+     <div class="main">
+   
+        <div class="card-body">
+          <form class="auth-form" [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+            <div class="text-center">
+              <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()">
+            </div>
+            <div class="form-group">
+              <label>Select file to upload</label>
+              <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="imageUrl"
+                (change)="showPreview($event)">
+              <div class="text-danger" *ngIf="isSubmitted && formControls.imageUrl.errors?.required">This field is required.
+              </div>
+            </div>
+            <div class="form-group">
+                  <label>Create caption</label>
+              <input class="form-control" formControlName="caption" placeholder="Caption">
+              <div class="text-danger" *ngIf="isSubmitted && formControls.caption.errors?.required">This field is required.
+              </div>
+            </div>   
+            <div class="form-group">
+              <label>Url for this blog</label>
+          <input class="form-control" formControlName="blogUrl" placeholder="Blog Url">
+          <div class="text-danger" *ngIf="isSubmitted && formControls.caption.errors?.required">This field is required.
+          </div>
+        </div>          
+            <div class="input-group">               
+                  <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Choose category</label>
+                      </div>
+              <select formControlName="category" class="form-control" id="inputGroupSelect01">               
+                <option value="Web design">Web design</option>
+                <option value="Programming">Programming</option>
+                <option value="Graphic design">Graphic design</option>               
+              </select>
+            </div>
+
+            <div class="form-group">
+                <label>Your name</label>
+            <input class="form-control" formControlName="author" placeholder="Author">
+            <div class="text-danger" *ngIf="isSubmitted && formControls.author.errors?.required">This field is required.
+            </div>
+          </div> 
+
+            <div class="form-group">               
+                <label>Select date</label>
+            <input 
+            class="form-control" 
+            formControlName="date" 
+            placeholder="Select date" 
+            type="date"
+            >
+            <div class="text-danger" *ngIf="isSubmitted && formControls.date.errors?.required">This field is required.
+            </div>
+          </div> 
+
+           
+
+
+<!-- 
+            <div class="form-group">  
+                  <label>Input blog text here. </label>            
+                <textarea formControlName="mainText" class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
+            </div>    -->
+            
+            <editor
+            formControlName="mainText"
+            initialValue="<p>This is the initial content of the editor</p>"
+            [init]="{
+            height: 500,
+
+            menubar: false,
+          plugins: [
+         'advlist autolink lists link image charmap print preview anchor',
+         'searchreplace visualblocks code fullscreen',
+         'insertdatetime media table paste code help wordcount'
+        ],
+       toolbar:
+         'undo redo | formatselect | bold italic backcolor | \
+         alignleft aligncenter alignright alignjustify | \
+         bullist numlist outdent indent | removeformat | help'
+     }"
+  >
+</editor>
+
+
+
+
+            <div class="form-row">             
+              <div class="form-group col-md-6">
+                <button class="btn submit" type="submit" class="btn submit btn-block float-left">Save</button>
+              </div>
+
+              <div class="form-group col-md-6">
+                  <button class="btn submit ggl btn-block float-right" (click)="ClearForm()">Clear</button>
+                </div>
+            </div>
+           
+            <div class="or-saparator"><span></span></div>
+
+            <div class="form-group">
+                <a routerLink="/blog/list" class="btn btn-primary btn-block go-back">Go To Blog List</a>               
+             </div>
+
+           
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+</section>

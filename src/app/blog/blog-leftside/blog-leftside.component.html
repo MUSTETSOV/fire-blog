@@ -1,0 +1,155 @@
+<!--breadcrumb start-->
+<div class="breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 d-align-center">
+                <h2 class="title"><span> Blog</span></h2>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb ">
+                    <ol class="breadcrumb bg-transparent mb-0">
+                        <li class="breadcrumb-item"><a [routerLink]="'/home/one'">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Bloglist with sidebar  </a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumb end -->
+
+<!-- blog Section start  -->
+<section class="blog-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-9 blog-sec">
+                <div class="row blog-list">
+
+                      
+    <div class="row blog-list"  >
+
+          <div 
+          *ngFor= "let b of blogs$ | async"
+          class="col-lg-6 col-md-12">
+                  <div class="item news-slid">
+                      <a [routerLink]="['/blog/details-left-sidebar', b.blogUrl]">
+                          <div class="news-box">
+                              <img src="{{b.imageUrl}}" alt="news-1" class="img-fluid">
+                          </div>
+                      </a>
+                      <div class="news-text">
+                          <div class="blog-hover">
+                              <h4>{{ b.caption }}</h4>
+                              <ul class="list-inline blog-details-list">
+                                  <li>{{b.author}}</li>
+                                  <li>{{b.date}}</li>
+                                  <li>25 comments</li>
+                                  <li>3 View</li>
+                              </ul>
+                          </div>
+                          <p>{{b.mainText}}</p>
+                          
+                          <div class="form-group">
+                            <a  class="btn submit" [routerLink]="['/blog/details-left-sidebar', b.blogUrl]">View more</a>  
+                         </div>
+
+                      </div>
+                  </div>
+              </div>              
+            </div>
+       </div>
+    </div>
+            <!-- sidebar section -->
+            <div class="col-md-4 col-lg-3 order-md-first list-sidebar">
+                <div class="sidebar">
+                    <div class="sidebar-space">
+                        <h4 class="blog-title">blog Category</h4>
+                        <div class="blog-divider"></div>
+                        <div class="blog-cat-detail">
+                            <ul>
+                                <li class="marg-15" (click)="webBlogs()">
+                                    <a>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> Web Design
+                                    </a>
+                                </li>
+                                <li class="marg-15" (click) = "programmingBlogs()">
+                                    <a>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> Programming
+                                    </a>
+                                </li>
+                                <li class="marg-15" (click) = "graphicBlogs()">
+                                    <a>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> Graphic design
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-space">
+                        <h4 class="blog-title">Popular Tag</h4>
+                        
+                        <div class="blog-divider"></div>
+                        <div 
+                        *ngFor= "let b of uniqueBlogs$ | async"
+                        class="tags marg-20">
+     
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="{{b.tag}}">                                    
+                                    {{b.tag}}
+                                </button>
+                                <!-- <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Web"  >Web</button>
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Web"  >Programming</button>                          
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Design"  >Design</button> 
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Programming"  >Programming</button>
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Web"  >Web</button>
+                                <button class = "badge badge-theme btn" (click)="doFilter($event.target.value)" value="Web"  >Programming</button>   
+
+                                
+                            <a class = "btn" (click)="doFilter($event.target.value)" ><span class="badge badge-theme">fromA</span></a>                            
+                            <a href="javascript:void(0)"><span class="badge badge-theme">Dedicated support</span></a>
+                            <a href="javascript:void(0)"><span class="badge badge-theme">Documentation</span></a>
+                            <a href="javascript:void(0)"><span class="badge badge-theme">PSD is included</span></a>
+                            <a href="javascript:void(0)"><span class="badge badge-theme">Text</span></a>
+                            <a href="javascript:void(0)"><span class="badge badge-theme">Support</span></a>
+                            <a href="javascript:void(0)"><span class="badge badge-theme">Responsive</span></a>
+                            <a href="javascript:void(0)"><span class="badge badge-theme">Design</span></a> -->
+                        </div>
+                    </div>
+                    <h4 class="blog-title">Recent Post</h4>
+                    <div class="blog-divider"></div>
+                    <div class="recent-blog marg-20">
+                        <div 
+                        *ngFor= "let b of blogs$ | async; let i = index"
+                        class="media">
+                            <img
+                            *ngIf= "i < 3"                            
+                            class="mr-3" 
+                            src="{{b.imageUrl}}" 
+                            alt="blog">
+                            <div class="media-body">                                
+                                    <h5 
+                                    *ngIf= "i < 3"
+                                    class="mt-0">{{ b.caption }}</h5>                                
+                                <p 
+                                *ngIf= "i < 3"
+                                class="m-0">{{b.date}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- sidebar section -->
+        </div>
+    </div>
+
+    <div class="animation-circle absolute">
+        <i></i>
+        <i></i>
+        <i></i>
+    </div>
+    <div class="animation-circle-inverse">
+        <i></i>
+        <i></i>
+        <i></i>
+    </div>
+</section>
+<!-- blog Section End -->
