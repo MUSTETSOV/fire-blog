@@ -146,7 +146,8 @@
                         <div 
                         *ngFor= "let b of blogs$ | async; let i = index"
                         class="media">
-                            <img
+                        <a [routerLink]="['/blog/details-left-sidebar', b.blogUrl]">
+                        <img
                             *ngIf= "i < 3"                            
                             class="mr-3" 
                             src="{{b.imageUrl}}" 
@@ -159,6 +160,7 @@
                                 *ngIf= "i < 3"
                                 class="m-0">{{b.date}}</p>
                             </div>
+                        </a>    
                         </div>
                     </div>
                 </div>
