@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SignInComponent } from './sign-in/sign-in.component';
+// import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+// import { ForgetPasswordComponent } from '../forget-password/forget-password.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { ReviewComponent } from './review/review.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
@@ -16,18 +16,18 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      {
-        path: 'sign-in',
-        component: SignInComponent,
-      },
+      // {
+      //   path: 'sign-in',
+      //   component: SignInComponent,
+      // },
       {
         path: 'sign-up',
         component: SignUpComponent,
       }, 
-      {
-        path: 'forget-password',
-        component: ForgetPasswordComponent,
-      }, 
+      // {
+      //   path: 'forget-password',
+      //   component: ForgetPasswordComponent,
+      // }, 
       {
         path: 'thank-you',
         component: ThankYouComponent,

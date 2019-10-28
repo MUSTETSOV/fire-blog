@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {  Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { LandingFixService } from '../shared/services/landing-fix.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -6,15 +8,21 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.scss']
 })
-export class ContactUsComponent implements OnInit {
+export class ContactUsComponent implements  OnInit, OnDestroy {
 
   contactForm: FormGroup;
-  
-  constructor() { }
 
-  // Form Validator
+
+  constructor(
+    private fix: LandingFixService
+  ) { }
+
   ngOnInit() {
-  
+    this.fix.addFix();
+  }
+
+  ngOnDestroy() {
+    this.fix.removeFix();
   }
 
 }
