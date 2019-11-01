@@ -1,11 +1,6 @@
-<!-- Sign up Section start -->
 
 <app-header></app-header>
-
-
-
 <section class="theme-bg home">
-
   <div class="animation-circle-inverse absolute">
       <i></i>
       <i></i>
@@ -13,8 +8,6 @@
   </div>
   <div class="container">
       <div class="row"> 
-
-
       <div class="auth-card">
             <div class="text-center">
                <h2>Sign Up</h2>
@@ -22,7 +15,8 @@
                <p>Welcome To TimCreative, Please Sign up With Your Personal Account Information.</p>
             </div>
             <div class="main">
-               <form class="auth-form">
+               <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" 
+               class="auth-form">
                   <div class="form-group">
                      <label for="exampleInputname">Name</label>
                      <i class="fa fa-user"></i>
@@ -35,18 +29,38 @@
                   </div>
        
                   <div class="form-group">
+
                      <label for="exampleInputEmail1">Email</label>
                      <i class="fa fa-envelope-o"></i>
-                     <input required="" name="login[username]" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                     <input required emale                     
+                     type="email" 
+                     class="form-control" 
+                     id="exampleInputEmail1" 
+                     placeholder="Email"
+                     ngModel name="email">
                   </div>
+
                   <div class="form-group">
+
                      <label for="exampleInputPassword1">Password</label>
                      <i class="fa fa-lock"></i>
-                     <input id="exampleInputPassword1" required="" name="login[password]" type="password" class="form-control" placeholder="Password">
+                     <input 
+                     id="exampleInputPassword1" 
+                     required=""                     
+                     type="password" 
+                     class="form-control" 
+                     placeholder="Password"
+                     ngModel 
+                     name="password"
+                     minlength="6">
                      <a href="forgot-pass.html" class="forgot-pass">forgot?</a>
                   </div>
+
                   <div class="form-group">
-                     <button class="btn submit" type="submit">Sign Up</button>
+                        <div class="form-button text-center social-btns">
+                     <button class="btn submit" type="submit" [disabled]="!authForm.valid">{{ isLoginMode ? 'Login' : 'Sign Up'}}</button>
+                     <button class="btn submit" type="button" (click)="onSwitchMode()">Switch to {{isLoginMode? 'Sign Up' : 'Login'}}</button>
+                  </div>   
                   </div>
                   <div class="or-saparator"><span>or</span></div>
                   <h6 class="text-center mt-0 mb-3">Sign in with:</h6>
@@ -57,80 +71,6 @@
                </form>
             </div>
          </div>
-
-
 </div>
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
-
-<app-header></app-header>
-<section class="theme-bg home">
-<section class="auth-page">
-  <div class="animation-circle-inverse">
-     <i></i>
-     <i></i>
-     <i></i>
-  </div>
-  <div class="animation-circle">
-     <i></i>
-     <i></i>
-     <i></i>
-  </div>
-  <div class="auth-card">
-     <div class="text-center">
-        <h2>Sign Up</h2>
-        <img src="assets/images/title-line.png" alt="title-line" class="img-fluid line">
-        <p>Welcome To chatloop, Please Sign up With Your Personal Account Information.</p>
-     </div>
-     <div class="main">
-        <form class="auth-form">
-           <div class="form-group">
-              <label for="exampleInputname">Name</label>
-              <i class="fa fa-user"></i>
-              <input required="" name="loginname" type="text" class="form-control" id="exampleInputname" placeholder="Name">
-           </div>
-           <div class="form-group">
-              <label for="exampleInputnumber">Phone no</label>
-              <i class="fa fa-phone"></i>
-              <input required="" name="loginnumber" type="text" class="form-control" id="exampleInputnumber" placeholder="Phone no.">
-           </div>
-
-           <div class="form-group">
-              <label for="exampleInputEmail1">Email</label>
-              <i class="fa fa-envelope-o"></i>
-              <input required="" name="login[username]" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-           </div>
-           <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <i class="fa fa-lock"></i>
-              <input id="exampleInputPassword1" required="" name="login[password]" type="password" class="form-control" placeholder="Password">
-              <a href="forgot-pass.html" class="forgot-pass">forgot?</a>
-           </div>
-           <div class="form-group">
-              <button class="btn submit" type="submit">Sign Up</button>
-           </div>
-           <div class="or-saparator"><span>or</span></div>
-           <h6 class="text-center mt-0 mb-3">Sign in with:</h6>
-           <div class="form-button text-center social-btns">
-              <button type="submit" class="btn submit fb">Facebook</button>
-              <button type="submit" class="btn submit ggl">Google</button>
-           </div>
-        </form>
-     </div>
-  </div>
-</section>
-</section>
-<app-footer></app-footer> -->

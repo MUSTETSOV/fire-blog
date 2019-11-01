@@ -27,6 +27,7 @@ import { Test2Component } from './main/test2/test.component';
 import { Test3Component } from './test3/test3.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { FormsModule } from '@angular/forms';
 
 
 // import { CommonModule } from '@angular/common';
@@ -51,7 +52,10 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     Test2Component,
     Test3Component,
     SignInComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+
+
+   
 
     
     ],
@@ -68,6 +72,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     // CommonModule,
+
+    FormsModule
     
 
   ],
