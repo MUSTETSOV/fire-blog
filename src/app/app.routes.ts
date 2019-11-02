@@ -4,7 +4,7 @@ import { BlogComponent } from './blog/blog.component';
 import { MainComponent } from './main/main.component';
 import { AboutComponent } from './home/about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { AuthComponent } from './main/auth/auth.component';
+
 import { SignInComponent } from './main/sign-in/sign-in.component';
 
 
@@ -12,10 +12,7 @@ import { SignInComponent } from './main/sign-in/sign-in.component';
 
 export const rootRouterConfig: Routes = [
  
-    {
-      path: 'auth',
-      component: AuthComponent
-    },
+
     {
       path: 'sign-in',
       component: SignInComponent

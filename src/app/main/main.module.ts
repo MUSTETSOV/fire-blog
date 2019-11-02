@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
 import { SharedModule } from '../shared/shared.module';
 
-import { AuthComponent } from './auth/auth.component';
+
 
 import { SignInComponent } from './sign-in/sign-in.component';
 
@@ -18,7 +18,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
   ],
   declarations: [
     MainComponent,
-    AuthComponent,
+
     SignInComponent
   ],
 })

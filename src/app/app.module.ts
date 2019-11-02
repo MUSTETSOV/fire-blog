@@ -20,7 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { AboutComponent } from './home/about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { AuthComponent } from './main/auth/auth.component';
+
 
 
 import { FormsModule } from '@angular/forms';
@@ -38,7 +38,7 @@ import { SignInComponent } from './main/sign-in/sign-in.component';
     MainComponent,
     AboutComponent,
     ContactUsComponent,
-    AuthComponent,
+    
     SignInComponent
 
 
