@@ -24,14 +24,16 @@
             <li class="nav-item">
                 <a class="nav-link"  [routerLink]="'/contact'" [pageScrollOffset]="75" pageScroll>contact</a>
               </li>
-            
+          
   
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Other Page</a>
             <ul class="dropdown-menu">
       
+              <li class="nav-item"><a class="nav-link" [routerLink]="'/sign-in'">Sign In</a></li>
+
               <li class="nav-item"><a class="nav-link" [routerLink]="'/home/about'">About</a></li>
-              <li class="nav-item"><a class="nav-link" [routerLink]="'/pages/sign-in'">Sign In</a></li>
+              
               <li class="nav-item"><a class="nav-link" [routerLink]="'/pages/sign-up'">Sign Up</a></li>
               <li class="nav-item"><a class="nav-link" [routerLink]="'/pages/forget-password'">Forget Password</a></li>
               <li class="nav-item"><a class="nav-link" [routerLink]="'/pages/thank-you'">Thank You</a></li>

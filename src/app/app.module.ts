@@ -19,22 +19,12 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { AboutComponent } from './home/about/about.component';
-
-
- import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AuthComponent } from './main/auth/auth.component';
-import { Test2Component } from './main/test2/test.component';
-import { Test3Component } from './test3/test3.component';
-import { SignInComponent } from './pages/sign-in/sign-in.component';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+
+
 import { FormsModule } from '@angular/forms';
-
-
-// import { CommonModule } from '@angular/common';
-
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { SignInComponent } from './main/sign-in/sign-in.component';
 
 
 
@@ -49,13 +39,9 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     ContactUsComponent,
     AuthComponent,
-    Test2Component,
-    Test3Component,
-    SignInComponent,
-    ForgetPasswordComponent,
+    SignInComponent
 
 
-   
 
     
     ],

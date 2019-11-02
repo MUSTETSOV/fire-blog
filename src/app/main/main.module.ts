@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
 import { SharedModule } from '../shared/shared.module';
-import { Test2Component } from './test2/test.component';
+
 import { AuthComponent } from './auth/auth.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { SignInComponent } from './sign-in/sign-in.component';
 
 
 @NgModule({
@@ -17,8 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   declarations: [
     MainComponent,
-    Test2Component,
-    AuthComponent
+    AuthComponent,
+    SignInComponent
   ],
 })
 export class MainModule { }
