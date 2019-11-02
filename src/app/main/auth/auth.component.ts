@@ -1,6 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LandingFixService } from '../../shared/services/landing-fix.service';
-import { NgForm } from '@angular/forms';
+
+
+import * as firebaseui from 'firebaseui';
+import * as firebase from 'firebase/app';
+import {AngularFireAuth} from '@angular/fire/auth';
+
 
 @Component({
   selector: 'app-auth',
@@ -9,29 +14,51 @@ import { NgForm } from '@angular/forms';
 })
 export class AuthComponent implements OnInit, OnDestroy {
 
-  isLoginMode = true;
+   ui: firebaseui.auth.AuthUI;
 
 
-  onSwitchMode() {
-    this.isLoginMode = !this.isLoginMode;
-
-  }
-
-  onSubmit(form: NgForm) {
-    console.log(form.value);
-    form.reset();
-  }
-
-
+   
   constructor(
+    private afAuth: AngularFireAuth,
     private fix: LandingFixService
-  ) { }
+  ) {
+
+   }
 
   ngOnInit() {
     this.fix.addFix();
+
+    const uiConfig = {
+      signInOptions: [
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID
+      ],
+      callbacks: {
+
+          signInSuccessWithAuthResult: this
+              .onLoginSuccessful
+              .bind(this)
+      }
+
+  };
+
+  this.ui = new firebaseui.auth.AuthUI(this.afAuth.auth);
+
+  this.ui.start('#firebaseui-auth-container', uiConfig);
+
   }
 
   ngOnDestroy() {
     this.fix.removeFix();
   }
+
+  onLoginSuccessful() {
+
+//    console.log("Firebase UI result:", result);
+
+    // this.ngZone.run(() => this.router.navigateByUrl('/courses'));
+
+}
+
+
 }

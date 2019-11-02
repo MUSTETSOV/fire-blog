@@ -28,6 +28,7 @@ import { Test3Component } from './test3/test3.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { FormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 // import { CommonModule } from '@angular/common';
@@ -71,6 +72,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    AngularFireAuthModule,
     // CommonModule,
 
     FormsModule
