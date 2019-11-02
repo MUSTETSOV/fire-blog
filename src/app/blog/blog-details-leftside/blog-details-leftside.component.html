@@ -1,0 +1,107 @@
+<!--breadcrumb start-->
+<div class="breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 d-align-center">
+                <h2 class="title"><span> Blog</span></h2>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb ">
+                    <ol class="breadcrumb bg-transparent mb-0">
+                        <li class="breadcrumb-item"><a [routerLink]="'/blog/list'">Blog</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">{{ blog.caption }}</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumb end -->
+
+<!-- blog Section start -->
+<section class="blog-page">
+    <div class="container">
+        <div class="row">
+            <!-- blog details starts -->
+            <div class="col-sm-12 col-md-8 col-lg-9">
+                <div class="blog-details news-slid" >
+                    <div class="news-box">
+                        <img src="{{blog.imageUrl}}" alt="news-1" class="img-fluid">
+                      
+                    </div>
+                    <div class="news-text">
+                        <div class="blog-hover">                          
+                            
+                            <h4>{{blog.caption}}</h4>
+
+                            <ul class="list-inline blog-details-list">
+                                <li>{{blog.author}}</li>
+                                <li>{{blog.date}}</li>
+                                <li>{{comments.length}} comments</li>
+
+                            </ul>
+                        </div>
+                        <p>{{ blog.mainText}} </p>
+                        <div [innerHTML]="blog.mainText"></div>
+                        
+                    </div>
+                </div>
+                <div class="blog-divider"></div>
+                <div class="reply-comment">
+                    <div 
+                    *ngFor= "let c of comments"
+                    class="media">
+                        <img class="align-self-top mr-3" src="assets/images/blog/blog-comment.jpg" alt="blog">
+                        <div class="media-body">
+                           
+                                <h5 class="mt-0">{{c.caption}}</h5>
+                                <ul class="list-inline blog-details-list">
+                                    <li>{{c.date | date:'yyyy/MM/dd h:mm:ss a'}}</li>                                   
+                                </ul>                            
+                            <p>{{c.text}}</p>
+                        </div>
+                    </div>
+                </div>
+<div class="blog-divider"></div>
+
+<div class="row">
+    <div class="col-md-10 offset-md-1 leave-coment">
+        <h3 class="text-center">Leave Your Comment</h3>
+        <form class="auth-form" [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+           <div class="form-group"> 
+            <input class="form-control" type="text" class="form-control" formControlName="caption" placeholder="Caption">
+           </div>
+           <div class="form-group">
+            <textarea formControlName="text" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="message"></textarea>
+           </div>
+           <div class="form-group">
+            <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="date" style="visibility: hidden" placeholder="date" [(ngModel)] = "serverTime">                                        
+           </div>
+            <div class="form-button">
+                <button type="submit" class="btn btn-theme theme-color">send</button>
+            </div>
+        </form>
+    </div>
+                </div>
+            </div>
+            <!-- blog details end -->
+
+            <!-- sidebar starts -->
+            
+            <!-- sidebar end -->
+        </div>
+    </div>
+
+    <div class="animation-circle absolute">
+        <i></i>
+        <i></i>
+        <i></i>
+    </div>
+    <div class="animation-circle-inverse">
+        <i></i>
+        <i></i>
+        <i></i>
+    </div>
+</section>
+
+<!-- blog Section End -->
